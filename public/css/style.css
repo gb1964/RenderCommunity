@@ -1,3 +1,4 @@
+/*
 body {
 	margin: 0 auto;
 	background-color:#ffffff;
@@ -9,6 +10,7 @@ h1 {
 	font-size:32px;
 	margin-top:0;
 }
+*/
 .bigUpload .bigUploadContainer {
 	max-width: 350px;
 	padding: 20px 30px 30px;
@@ -76,3 +78,4 @@ h1 {
 	background-color: rgb(91, 183, 91);
 	font-size: 14px;
 }
+

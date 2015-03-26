@@ -1,10 +1,83 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div id="wrap-all">
+  <div class="other-warp">
+    <div class="single-panel" style="max-width:500px; margin-top: 5px; auto;">
+      <div class="single-panel-inner">
+        <div class="single-panel-header">
+          <h3>提交作业</h3>
+        </div>
+        <div class="single-panel-body">
+          <div class="single-panel-section">
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i glyphicon glyphicon-user></i></span>
+                <input class="form-control" type="text" placeholder="输入作业名称"
+                       name="job_name" ng-model="jobName" required="" wt-autofocus=""/>
+              </div>
+            </div>
+            <div class="form-group input-group">
+              <i class="input-group-addon icon-lock"></i>
+              <input class="form-control" type="text" placeholder="选择场景文件"
+                     name="sceneFileName" id="sceneFileName" ng-click="onSelectSceneFile(open)" required=""/>
+                                    <span class="dropdown" on-toggle="onSelectSceneFile(open)">
+                                        <a href class="dropdown-toggle"></a>
+                                            <ul class="dropdown-menu">
+                                              <li ng-repeat="choice in sceneItems">
+                                                <a href>{{choice}}</a>
+                                              </li>
+                                            </ul>
+                                    </span>
+            </div>
+            <div class="form-group input-group">
+              <!--
+                 <span class="input-group-addon"><i class="icon-lock"></i></span>
+              -->
+              <i class="input-group-addon icon-lock"></i>
+              <input class="form-control" type="text" placeholder="输入帧序列"
+                     name="frame_array" ng-model="frameArray" required=""/>
+            </div>
+            <div class="form-group input-group">
+              <i class="input-group-addon icon-lock"></i>
+              <input class="form-control" type="text" placeholder="选择引擎版本"
+                     name="engineName" id="engineName" ng-model="engineName" required=""/>
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                  <span class="caret"></span>
+                  <span class="sr-only">选择引擎版本</span>
+                </button>
+                <ul class="dropdown-menu pull-right">
+                  <li><a ng-click="SetEngineName('Maya')">Maya</a></li>
+                  <li><a ng-Click="SetEngineName('Rendering')">RenderWing</a></li>
+                  <li><a ng-Click="SetEngineName('3ds Max')">3ds Max</a></li>
+                  <li><a ng-Click="SetEngineName('Blender')">Blender</a></li>
+                </ul>
+              </div><!-- /btn-group -->
+            </div>
+<!--
+            <div class="form-group input-group">
+              <i class="input-group-addon icon-lock"></i>
+              <input class="form-control" type="text" placeholder="选择服务方式"
+                     name="service_way" ng-model="serviceWay" required=""/>
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-defaultdropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                  <span class="caret"></span>
+                  <span class="sr-only">选择渲染服务方式</span>
+                </button>
+                <ul class="dropdown-menu pull-right">
+                  <li><a ng-click="SetServiceWay('普通收费方式')">普通收费方式</a></li>
+                  <li><a ng-click="SetServiceWay('无限渲染套餐')">无限渲染套餐</a></li>
+                </ul>
+              </div>
+            </div>
+-->
+            <div class="form-group">
+              <button type="submit"  class="btn btn-success btn-lg btn-block"
+                      data-loading-text="登录中..." loading-status="signin_user.is_login_ing"> 提 交
+              </button>
+            </div>
 
-</body>
-</html>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

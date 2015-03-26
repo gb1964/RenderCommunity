@@ -38,7 +38,7 @@ function bigUpload () {
 		'progressBarColorError': '#da4f49',
 
 		//Path to the php script for handling the uploads
-		'scriptPath': 'inc/bigUpload.php',
+		'scriptPath': 'http://localhost:9292/localhost/bigUpload.php',
 
 		//Additional URL variables to be passed to the script path
 		//ex: &foo=bar
@@ -126,8 +126,8 @@ function bigUpload () {
 		//Reset the background color of the progress bar in case it was changed by any earlier errors
 		//Change the Upload button to a Pause button
 		this.$(this.settings.progressBarField).style.backgroundColor = this.settings.progressBarColor;
-		this.$(this.settings.responseField).textContent = 'Uploading...';
-		this.$(this.settings.submitButton).value = 'Pause';
+		this.$(this.settings.responseField).textContent = '上传中...';
+		this.$(this.settings.submitButton).value = '暂停';
 
 		//Alias the file input object to this.uploadData
 		this.uploadData.file = this.$(this.settings.inputField).files[0];
@@ -136,7 +136,7 @@ function bigUpload () {
 		//But this should be good enough to catch any immediate errors
 		var fileSize = this.uploadData.file.size;
 		if(fileSize > this.settings.maxFileSize) {
-			this.printResponse('The file you have chosen is too large.', true);
+			this.printResponse('你选择的文件太大.', true);
 			return;
 		}
 
@@ -161,7 +161,7 @@ function bigUpload () {
 		//Check if the upload has been paused by the user
 		if(this.uploadData.paused === true) {
 			this.uploadData.pauseChunk = chunk;
-			this.printResponse('Upload paused.', false);
+			this.printResponse('上传暂停.', false);
 			return;
 		}
 
@@ -247,8 +247,8 @@ function bigUpload () {
 					parent.resetKey();
 
 					//Change the submit button text so it's ready for another upload and spit out a sucess message
-					parent.$(parent.settings.submitButton).value = 'Start Upload';
-					parent.printResponse('File uploaded successfully.', false);
+					parent.$(parent.settings.submitButton).value = '开始上传';
+					parent.printResponse('文件上传成功.', false);
 
 					parent.success(response);
 				}
@@ -277,7 +277,7 @@ function bigUpload () {
 						parent.printResponse(response.errorText, true);
 						return;
 					}
-					parent.printResponse('File upload was cancelled.', true);
+					parent.printResponse('取消文件上传.', true);
 				}
 
 			};
@@ -294,14 +294,14 @@ function bigUpload () {
 	this.pauseUpload = function() {
 		this.uploadData.paused = true;
 		this.printResponse('', false);
-		this.$(this.settings.submitButton).value = 'Resume';
+		this.$(this.settings.submitButton).value = '恢复';
 	};
 
 	//Resume the upload
 	//Undoes the doings of this.pauseUpload and then re-enters the loop at the last chunk uploaded
 	this.resumeUpload = function() {
 		this.uploadData.paused = false;
-		this.$(this.settings.submitButton).value = 'Pause';
+		this.$(this.settings.submitButton).value = '暂停';
 		this.sendFile(this.uploadData.pauseChunk);
 	};
 

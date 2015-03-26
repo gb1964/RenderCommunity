@@ -1,0 +1,65 @@
+<div class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">文化创意与数字媒体社区</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown" ng-hide="user">
+          <a href="/#">首页</a>
+        </li>
+        <li class="dropdown" ng-hide="user">
+          <a href="/mobile">移动版</a>
+        </li>
+        <li class="dropdown" ng-hide="user">
+
+          <a href="/jobWatch">关于</a>
+        </li>
+        <li class="dropdown" ng-show="user">
+          <a href="/#">首页</a>
+        </li>
+
+        <li class="dropdown" ng-show="user">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown">渲染作业<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="active" href="#jobWatch" >作业监控</a></li>
+            <li><a href="/fileUpload">场景上传</a></li>
+            <li><a href="/jobSubmit">作业提交</a></li>
+            <li><a href="/jobDel" data-tab="tab-how_submit">作业删除</a></li>
+            <li><a href="/jobRepair" data-tab="tab-how_submit">作业修复</a></li>
+            <li><a href="/jobRefresh" data-tab="tab-how_submit">作业刷新</a></li>
+            <li><a href="/nodeInfo" data-tab="tab-how_submit">节点信息</a></li>
+          </ul>
+        </li>
+        <li class="dropdown" ng-show="user">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">数字媒体资源库<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a class="active" href="/jobWatch" ng-click="getUserList">资源查询</a></li>
+            <li><a href="/fileUpload" data-tab="tab-how_upload">资源上传</a></li>
+          </ul>
+        </li>
+        <li class="dropdown" ng-show="user">
+          <a href="/jobWatch">关于</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown" ng-show="user">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{user.name}} <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="" ng-click="logout()">退出</a></li>
+          </ul>
+        </li>
+        <li ng-hide="user">
+          <a href="/signup">注册</a>
+        </li>
+        <li ng-hide="user">
+          <a href="/login">登录</a>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
