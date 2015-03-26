@@ -1,0 +1,33 @@
+<div>
+  <link href="css/bootstrap-combined.min.css" rel="stylesheet">
+  <table class="table table-hover table-bordered table-responsive" style="width:600px;margin-top:60px;margin-left:20px">
+    <div ng-bind="jobList">
+      <caption><h4>作业状态</h4></caption>
+      <tbody>
+      <tr>
+        <th>序号</th>
+        <th>名称</th>
+        <th>场景名称</th>
+        <th>P</th>
+        <th>状态</th>
+        <th>个数</th>
+        <th>提交时间</th>
+        <th>完成时间</th>
+        <th>引擎</th>
+      </tr>
+      <tr ng-repeat='job in jobList'>
+        <td>{{begins + $index + 1}}</td>
+        <td>{{job.taskdescribe}}</td>
+        <td>{{job.scene}}</td>
+        <td>{{job.priority}}</td>
+        <td>{{job.state}}</td>
+        <td>{{job.subjobs}}</td>
+        <td>{{job.submittime}}</td>
+        <td>{{job.endtime}}</td>
+        <td>{{job.engine}}</td>
+      </tr>
+      </tbody>
+    </div>
+  </table>
+  <div id="myPaginator"></div>
+</div>
